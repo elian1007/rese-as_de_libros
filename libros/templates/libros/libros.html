@@ -18,12 +18,11 @@
     <div class="containerbtn">
        <button class="button-33" id="refresh">Probar suerte</button>
     </div>
-    <div class="card" style="width: 30rem; height: 33rem;">  
+    <div class="card" style="width: 30rem; height: 27rem;">  
       <div class="container" id="app">
+
       </div>
     </div>
-    <div class="lado"></div>
-    <div class="lado"></div>
 </div>
 <label class="custom-select" for="styledSelect1">
   <select onchange="eventSelect();" id="select" name="select">
@@ -31,21 +30,25 @@
   <option value="name">Titulo</option>
   <option value="type">Autor</option>
   <option value="genre">Genero</option>
-  <option value="genre">Detalle</option>
   <option value="views">Vistas</option>
-  <option value="rate">Puntaje</option>
+  <option value="rate">promedio</option>
 </select></label>
 
 <div class="">
-    <div id="app2"></div>
+    <div id="app2">
+      
+    </div>
 
   <div class="cont_input"></div>
+  <div class="input">
+
     <input id="name" type="text"   placeholder="Titulo">
     <input id="genre" type="text"  placeholder="Genero">
-    <input id="rate" type="text"  placeholder="Tipo">
+    <input id="rate" type="text"  placeholder="Autor">
     <button id="buttonFilter" onclick="eventFilter()" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
     </svg></button>
+  </div>
     <div id="appFilter" ></div>
 </div>
 
@@ -56,6 +59,54 @@
 
 </html>
  <style>
+  .input1{
+    background-color: red;
+  }
+  .input{
+    display: flex;
+  }
+  form {
+    margin-top: 10px;
+    width: 100%;
+}
+.contStar {
+    display: flex;
+    height: 0;
+    margin-top: -17px;
+}
+  .star {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .title{
+    margin-top: -32px; 
+  }
+  .summary1{
+    padding: 20px;
+  }
+
+  .summary {
+    display: flex;
+    justify-content: space-evenly;
+    height: 29px;
+    width: 100%;
+}
+
+
+.text {
+    /* padding: 1px; */
+    padding-left: -7px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    /* background: red; */
+}
+
+  h5{
+    color:#c2fbd7
+  }
   #btn-vot{
     border: none;
     background: #57019d;
@@ -72,6 +123,8 @@
     background: transparent;
     text-align: -webkit-auto;
     color: #250f50;
+    margin-top: 27px;
+
   }
   #appFilter{
     display: flex;
@@ -103,6 +156,7 @@
   p {
     color: wheat;
     font-size: larger;
+    height: 0;
 }
 
   input{
@@ -116,7 +170,7 @@
   input[type=text] {
     background: transparent;
     border: none;
-    width: 30%;
+    width: 99%;
     border-bottom: 3px solid blue;
   }
   h1{
@@ -241,7 +295,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 35%;
+      width: 43%;
       margin-right: 50PX;
   }
 
@@ -312,16 +366,14 @@ body {
         transform: scale(1.05) rotate(-1deg);
       }
 
-       /* .play-btn {
-        width: 65px;
-        height: 65px;
-        background: radial-gradient( rgba(255, 0, 128, 0.8) 60%, rgba(255, 255, 255, 1) 62%);
-        border-radius: 50%;
-        position: relative;
-        display: block;
-        margin: 25px auto;
-        box-shadow: 0px 0px 25px 3px rgba(255, 0, 128, 0.8);
-    }  */
+       .play-btn {
+        
+    background: red;
+    background: none;
+    border: none;
+    color: wheat;
+}
+    
       
       
       /* triangle */

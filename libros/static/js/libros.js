@@ -3,16 +3,23 @@ const API_URL = 'http://127.0.0.1:8000/api/mediarandom/';
 function getMediaTemplate(media) {
 
     tempstr = `<h3>  
-    <p>${media.name}</p> 
+    <p class="title">${media.name}</p> 
+    <div class="text">
     <p>${media.genre}</p> 
     <p>${media.author}</p> 
-    <h5>${media.summary}</h5>
+    </div>
+    <h5>${media.summary}<h5>
+    <div class="summary">
     <button  class="play-btn" id="" onclick="markAsViewed('${media.id}')">${media.views}<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
     </svg>
     </button>        
-    <p>★ ${media.average}</p>
+    <div class="contStar">
+    <p class="star">★</p>
+    <p>${media.average}</p>
+    </div>
+    </div>
     <select  id="selectAverage" name="select">
     <option value="">Calificar por estrellas </option>
     <option value=1>★</option>
@@ -21,12 +28,13 @@ function getMediaTemplate(media) {
     <option value=4>★★★★</option>
     <option value=5>★★★★★</option>
     </select></label> <button id="btn-vot" onclick="markAsRating('${media.id}')" >Enviar</button> 
-    <h5> Comentarios : ${media.review}</h5>
   <form method="post">
     <input type="text" placeholder="comentario" review" name="nombre" required>
     <br>
     <input type="submit" value="Enviar" >
 </form>
+<p> Comentarios : ${media.review}</p>
+
   </h3>`
     return tempstr
 }
@@ -34,14 +42,24 @@ function getMediaTemplate(media) {
 function getMediaTemplateOrder(media) {
     template = tempstr = `<h4  
     <p>  ${media.name}</p> 
-    <p> ${media.genre}</p> 
-    <p>  ${media.author}</p> 
+    <div class="text">
+    <p>${media.genre}</p> 
+    <p>${media.author}</p> 
+    </div> 
+    <div class="summary1">
+    <hp>${media.summary}</hp>
+    </div>
+    <div class="summary">
     <button  class="play-btn" id="" onclick="markAsViewed('${media.id}')">${media.views}<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
     </svg>
-    </button> 
-    <p>Promedio: ${media.average}</p>
+    </button>        
+    <div class="contStar">
+    <p class="star">★</p>
+    <p>${media.average}</p>
+    </div>
+    </div>
     <select  id="selectAverage" name="select">
     <option value="">Calificar por estrellas </option>
     <option value=1>★</option>
@@ -49,28 +67,40 @@ function getMediaTemplateOrder(media) {
     <option value=3>★★★</option>
     <option value=4>★★★★</option>
     <option value=5>★★★★★</option>
-  </select></label> <button id="btn-vot" onclick="markAsRating('${media.id}')" >VOTAR</button> 
-  <h5> Comentarios : ${media.review}</h5>
-  <form method="post">
-    <input type="text" placeholder="comentario" review" name="nombre" required>
+    </select></label> 
+    <button id="btn-vot" onclick="markAsRating('${media.id}')" >VOTAR</button> 
+    <form method="post">
+    <input type="text" placeholder="comentario" class="input1" review" name="nombre" required>
     <br>
     <input type="submit" value="Enviar" >
-</form>
+    </form>
+    <p> Comentarios : ${media.review}</p>
 </h4>`
+
     return template
 }
 
 function getMediaTemplateFilter(media) {
     template = tempstr = `<h4  
     <p>  ${media.name}</p> 
-    <p> ${media.genre}</p> 
-    <p>  ${media.author}</p> 
+    <div class="text">
+    <p>${media.genre}</p> 
+    <p>${media.author}</p> 
+    </div> 
+    <div class="summary1">
+    <hp>${media.summary}</hp>
+    </div>
+    <div class="summary">
     <button  class="play-btn" id="" onclick="markAsViewed('${media.id}')">${media.views}<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
     </svg>
-    </button> 
-    <p>Promedio: ${media.average}</p>
+    </button>        
+    <div class="contStar">
+    <p class="star">★</p>
+    <p>${media.average}</p>
+    </div>
+    </div>
     <select  id="selectAverage" name="select">
     <option value="">Calificar por estrellas </option>
     <option value=1>★</option>
@@ -78,13 +108,14 @@ function getMediaTemplateFilter(media) {
     <option value=3>★★★</option>
     <option value=4>★★★★</option>
     <option value=5>★★★★★</option>
-  </select></label> <button id="btn-vot" onclick="markAsRating('${media.id}')" >VOTAR</button> 
-  <h5> Comentarios : ${media.review}</h5>
-  <form method="post">
-    <input type="text" placeholder="comentario" review" name="nombre" required>
+    </select></label> 
+    <button id="btn-vot" onclick="markAsRating('${media.id}')" >VOTAR</button> 
+    <form method="post">
+    <input type="text" placeholder="comentario" class="input1" review" name="nombre" required>
     <br>
     <input type="submit" value="Enviar" >
-</form>
+    </form>
+    <p> Comentarios : ${media.review}</p>
 </h4>`
 return template
 

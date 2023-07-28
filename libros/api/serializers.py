@@ -42,9 +42,9 @@ class Mediaserializer(ModelSerializer):
         return stars_average
 
     def get_review(media,item):
-        rating=MediaRating.objects.filter(
+        ratin=MediaRating.objects.filter(
             mediaId__id=item.id)
-        stars_review = rating.aggregate(Avg('review'))["review__avg"]
+        stars_review = ratin.aggregate(Avg('review'))["review__avg"]
         return stars_review
     
 
